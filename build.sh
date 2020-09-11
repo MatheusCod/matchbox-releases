@@ -28,8 +28,8 @@ then
    sudo mv empacotar-deb.sh $LOCALPATH/bin
    sudo mv empacotar-rpm.sh $LOCALPATH/bin
    cd $LOCALPATH/bin
-   sudo ./empacotar-deb.sh matchbox matchbox_$github_version $github_version " "
-   sudo ./empacotar-rpm.sh matchbox matchbox_$github_version $github_version " " "matchbox is a service that matches bare-metal machines to profiles that PXE boot and provision clusters"
+   sudo ./empacotar-deb.sh matchbox matchbox-$github_version $github_version " "
+   sudo ./empacotar-rpm.sh matchbox matchbox-$github_version $github_version " " "matchbox is a service that matches bare-metal machines to profiles that PXE boot and provision clusters"
    if [[ $github_version = $ftp_version ]]
    then
       lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO1 $LOCALPATH/bin/matchbox-$github_version-ppc64le.deb"
