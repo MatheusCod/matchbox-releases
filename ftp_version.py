@@ -22,7 +22,7 @@ file.writelines(ftp_version)
 file.close()
 
 # find and save the oldest Matchbox version on FTP server
-ftp_version = html[index + 9:index + 14]
-file = open('ftp_version.txt', 'w')
-file.writelines(ftp_version)
+delete_version = html[index + 9:index + 14]
+file = open('delete_version.txt', 'w')
+file.writelines(delete_version)
 file.close()
