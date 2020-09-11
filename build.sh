@@ -9,7 +9,7 @@ REPO2="/teste/matheus"
 github_version=$(cat github_version.txt)
 ftp_version=$(cat ftp_version.txt)
    
-if [ $github_version != $ftp_version ]
+if [ $github_version = $ftp_version ]
 then
    cd $LOCALPATH
    wget https://github.com/poseidon/matchbox/archive/v$github_version.zip
@@ -30,7 +30,7 @@ then
    cd $LOCALPATH/bin
    sudo ./empacotar-deb.sh matchbox matchbox_$github_version $github_version " "
    sudo ./empacotar-rpm.sh matchbox matchbox_$github_version $github_version " " "matchbox is a service that matches bare-metal machines to profiles that PXE boot and provision clusters"
-   if [[ $github_version > $ftp_version ]]
+   if [[ $github_version = $ftp_version ]]
    then
       lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO1 $LOCALPATH/bin/matchbox-$github_version-ppc64le.deb"
       lftp -c "open -u $USER,$PASS ftp://oplab9.parqtec.unicamp.br; put -O $REPO2 $ROOTPATH/matchbox-$github_version-1.ppc64le.rpm"
