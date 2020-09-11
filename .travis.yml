@@ -2,7 +2,6 @@ language: go
 os: linux
 arch: ppc64le
 sudo: required
-
 services:
   - docker
 go: "1.14.x"
