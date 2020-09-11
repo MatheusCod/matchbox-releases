@@ -22,11 +22,6 @@ file.writelines(ftp_version)
 file.close()
 
 # find and save the oldest Matchbox version on FTP server
-html = str(
-             requests.get(
-                        'https://oplab9.parqtec.unicamp.br/pub/ppc64el/matchbox/'
-                        ).content)
-index = html.find('matchbox-')
 ftp_version = html[index + 9:index + 14]
 file = open('ftp_version.txt', 'w')
 file.writelines(ftp_version)
